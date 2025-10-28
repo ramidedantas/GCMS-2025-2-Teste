@@ -9,7 +9,7 @@ public class HomeController {
  
   @RequestMapping("/") 
   public @ResponseBody String greeting() { 
-    return "Hello, World!!!!!!!!-IntelliJ";
+    return "Hello, World!!!!!!!!-IntelliJ+Eclipse";
   }
   
   @RequestMapping("/ramide") 
