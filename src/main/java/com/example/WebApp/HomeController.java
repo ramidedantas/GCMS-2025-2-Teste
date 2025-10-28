@@ -20,6 +20,6 @@ public class HomeController {
   @RequestMapping("/rasd") 
   public @ResponseBody String greetingRasd() {
     return "Hello, Rasd!!!!!!";
-  } 
+  }  
 
 }  
