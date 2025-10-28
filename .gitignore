@@ -1,3 +1,6 @@
+*.class
+*.jar
+*.lock
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
