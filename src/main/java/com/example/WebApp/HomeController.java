@@ -16,5 +16,10 @@ public class HomeController {
   public @ResponseBody String greetingRamide() {
     return "Hello, Ramide!!!!!!";
   } 
+  
+  @RequestMapping("/rasd") 
+  public @ResponseBody String greetingRasd() {
+    return "Hello, Rasd!!!!!!";
+  } 
 
 }  
