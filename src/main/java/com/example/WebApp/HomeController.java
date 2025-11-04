@@ -21,5 +21,10 @@ public class HomeController {
   public @ResponseBody String greetingRasd() {
     return "Hello, Rasd!!!!!!";
   }  
+  
+  @RequestMapping("/conflict") 
+  public @ResponseBody String greetingConflit() {
+    return "Hello, Conflict?";
+  } 
 
 }  
