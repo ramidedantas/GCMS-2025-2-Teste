@@ -31,5 +31,10 @@ public class HomeController {
   public @ResponseBody String greetingConflit() {
     return "Hello, Conflict?";
   } 
+  
+  @RequestMapping("/rasd_branch") 
+  public @ResponseBody String greetingRasdBranch() {
+    return "Hello, RASD Branch?";
+  } 
 
 }  
