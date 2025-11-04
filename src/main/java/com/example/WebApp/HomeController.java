@@ -37,4 +37,9 @@ public class HomeController {
     return "Hello, RASD Branch?";
   } 
 
+  @RequestMapping("/rasd_fork") 
+  public @ResponseBody String greetingRasdFork() {
+    return "Hello, RASD Fork";
+  } 
+
 }  
