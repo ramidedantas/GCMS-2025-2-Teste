@@ -10,4 +10,5 @@ COPY ./ /App/
 # Mudando o diretório de trabalho para o diretório do App
 WORKDIR /App/
 # Rodando o gradle. Rodado ao executar docker start.
-CMD ./gradlew build --console=plain
+RUN ./gradlew assemble --console=plain
+CMD ./gradlew check --console=plain
