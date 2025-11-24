@@ -15,8 +15,9 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    container:
+      image: docker://ramideifpe/gcms-2025-2:webapp-teste-debian
     permissions:
       contents: read
 
@@ -37,5 +38,38 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+
+  docker-build-push:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Build AND push your deployment container
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_REPO }}:latest  
+
+  render-redeploy:
+    needs: docker-build-push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render redeploy
+      # Important: GET is enough; do not echo the secret
+        run: curl -s -X GET "${{ secrets.RENDER_DEPLOY_HOOK }}"
 
 
