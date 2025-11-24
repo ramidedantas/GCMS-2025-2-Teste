@@ -61,7 +61,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_REPO }}:latest  
+            ramideifpe/gcms-2025-2:webapp-teste-debian  
 
   render-redeploy:
     needs: docker-build-push
